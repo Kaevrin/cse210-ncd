@@ -21,7 +21,7 @@ class Program
             if (input == "")
             {   
                 Console.WriteLine("\nWelcome to the Journal");
-                Console.WriteLine("Options:\nWrite\nAdd\nDisplay\nSave\nClear\nExit\n");
+                Console.WriteLine("Options:\nWrite\nAdd\nDisplay\nSave\nDelete\nClear\nExit\n");
             }
             input = Console.ReadLine();
             if (input == "Write")
@@ -41,7 +41,7 @@ class Program
                 Console.WriteLine("Journal Entries:");
                 for (int i = 0; i < journal.Count; i++)
                 {
-                    Console.WriteLine($"{i}: {journal[i]}");
+                    Console.WriteLine($"{i+1}: {journal[i]}");
                 }
                 input = "";
             }
@@ -49,6 +49,27 @@ class Program
             {
                 Journal.Save(journal);
                 Console.WriteLine("Journal saved.");
+                input = "";
+            }
+            else if (input == "Delete")
+            {
+                Console.WriteLine("Journal Entries:");
+                for (int i = 0; i < journal.Count; i++)
+                {
+                    Console.WriteLine($"{i+1}: {journal[i]}");
+                }
+                input = Console.ReadLine();
+                int indexToDelete;
+                if (int.TryParse(input, out indexToDelete) && indexToDelete -1 >= 0 && indexToDelete -1 < journal.Count)
+                {
+                    journal.RemoveAt(indexToDelete - 1);
+                    Console.WriteLine("Entry deleted.");
+
+                }
+                else
+                {
+                    Console.WriteLine("Invalid index.");
+                }
                 input = "";
             }
             else if (input == "Clear")
