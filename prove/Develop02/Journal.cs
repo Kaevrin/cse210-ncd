@@ -1,53 +1,53 @@
 class Journal
 {
-    public string Content {get; set; }
-    public string Prompt {get; set; }
-    public DateTime DateWritten {get; set; }
+    public string _content {get; set; }
+    public string _prompt {get; set; }
+    public DateTime _dateWritten {get; set; }
 
     public Journal(string content, string prompt)
     {
-        Content = content;
-        Prompt = prompt;
-        DateWritten = DateTime.Now; 
+        _content = content;
+        _prompt = prompt;
+        _dateWritten = DateTime.Now; 
     }
     public override string ToString()
     {
-        return $"{DateWritten.ToString("dd/MM/yy")}:\nPrompt: {Prompt}\nResponse: {Content}\n";
+        return $"{_dateWritten.ToString("dd/MM/yy")}:\nPrompt: {_prompt}\nResponse: {_content}\n";
     }
-    public static void Save(List<Journal> journal)
+    public static void Save(List<Journal> _journal)
     {
-        using (StreamWriter writer = new StreamWriter("Journal.csv", false))
+        using (StreamWriter _writer = new StreamWriter("Journal.csv", false))
         {
-            foreach (var entry in journal)
+            foreach (var entry in _journal)
             {
-               string formattedEntry = $"{entry.DateWritten:dd/MM/yy} | {entry.Prompt.Replace("|", " ")} | {entry.Content.Replace("|", " ")}";
-               writer.WriteLine(formattedEntry);
+               string formattedEntry = $"{entry._dateWritten:dd/MM/yy} | {entry._prompt.Replace("|", " ")} | {entry._content.Replace("|", " ")}";
+               _writer.WriteLine(formattedEntry);
            }
         
         }
     }
     public static List<Journal> Load()
     {
-        List<Journal> journalLoaded = new List<Journal>();
+        List<Journal> _journalLoaded = new List<Journal>();
         if (File.Exists("Journal.csv"))
         {
-            using (StreamReader reader = new StreamReader("Journal.csv"))
+            using (StreamReader _reader = new StreamReader("Journal.csv"))
             {
-                string line;
-                while ((line = reader.ReadLine()) != null)
+                string _line;
+                while ((_line = _reader.ReadLine()) != null)
                 {
-                    string[] parts = line.Split(new string[] { " | "}, StringSplitOptions.None);
-                    if (parts.Length == 3)
+                    string[] _parts = _line.Split(new string[] { " | "}, StringSplitOptions.None);
+                    if (_parts.Length == 3)
                     {
-                        DateTime dateWritten = DateTime.ParseExact(parts[0], "dd/MM/yy", null);
-                        string prompt = parts[1];
-                        string content = parts[2];
-                        journalLoaded.Add(new Journal(content, prompt) {DateWritten = dateWritten});
+                        DateTime dateWritten = DateTime.ParseExact(_parts[0], "dd/MM/yy", null);
+                        string _prompt = _parts[1];
+                        string _content = _parts[2];
+                        _journalLoaded.Add(new Journal(_content, _prompt) {_dateWritten = dateWritten});
                     }
                 }
             }
         }
-        return journalLoaded;
+        return _journalLoaded;
     }
 }
 

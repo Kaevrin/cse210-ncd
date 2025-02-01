@@ -1,6 +1,6 @@
 public class Prompt
 {
-    private static List<string> journalPrompts = new List<string>
+    private static List<string> _journalPrompts = new List<string>
     {
         "What is one small moment from today that made you smile?",
         "If you could give your past self one piece of advice, what would it be?",
@@ -16,7 +16,7 @@ public class Prompt
 
     public static string GetPrompt()
     {
-        Random random = new Random();
-        return journalPrompts[random.Next(journalPrompts.Count)];
+        Random _random = new Random();
+        return _journalPrompts[_random.Next(_journalPrompts.Count)];
     }
 }   
