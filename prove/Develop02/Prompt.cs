@@ -1,7 +1,7 @@
 public class Prompt
 {
     private static List<string> _journalPrompts = new List<string>
-    {
+        {
         "What is one small moment from today that made you smile?",
         "If you could give your past self one piece of advice, what would it be?",
         "Describe a place that makes you feel at peace and why it’s special to you.",
