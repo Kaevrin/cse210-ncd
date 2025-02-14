@@ -2,8 +2,7 @@ using System;
 
 class Program
 {
-    static void Main(string[] args)
-    {
-        Console.WriteLine("Hello Develop03 World!");
+    static void Main(string[] args) {
+        Reference reference = new Reference("Mosiah", 23, 21);
     }
 }
