@@ -9,10 +9,12 @@ public class Word {
         _ishidden = false;
     }
 
-    private void Hide() {
+    public void Hide() {
         _ishidden = true;
     }
-
+    public void Show() {
+        _ishidden = false;
+    }
     public bool IsHidden() {
         if (_ishidden == true) {
             return true;
