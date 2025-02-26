@@ -1,6 +1,6 @@
 class Breathing : Activity {
     int _breathInterval;
-    private Breathing(string message) : base(int)) {
+    private Breathing(string message, int time) : base(time) {
         Console.WriteLine(message);
     }
     private void BreatherLoop() {
