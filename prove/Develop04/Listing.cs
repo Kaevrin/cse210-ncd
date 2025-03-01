@@ -1,7 +1,7 @@
 class Listing : Activity {
-    List<string> prompts;
-    string _userreply;
-    List<string> replies;
+    private List<string> prompts;
+    private string _userreply;
+    private List<string> replies;
 
     public Listing(int time) : base(time) {
         GetRandomPrompt();

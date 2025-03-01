@@ -1,6 +1,8 @@
+using System.Diagnostics;
+
 class Activity {
     string _startingMessage;
-    int _time;
+    protected int _time;
     string _name;
 
     protected Activity(int duration) {
@@ -13,7 +15,7 @@ class Activity {
         return "bingus";
     }
     protected void SetTime(int duration) {
-        _time = duration;
+        _time = duration * 1000;
     }
     protected void ShowCountdown(int seconds) {
 

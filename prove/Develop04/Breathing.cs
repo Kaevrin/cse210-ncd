@@ -1,13 +1,27 @@
+using System.Threading.Tasks;
+using System.Diagnostics;
+using System.Runtime.InteropServices;
+
 class Breathing : Activity {
-    int _breathInterval;
-    private Breathing(string message, int time) : base(time) {
+    private int _breathInterval = 1000;
+    public Breathing(string message, int time) : base(time) {
         Console.WriteLine(message);
     }
-    private void BreatherLoop() {
-        
+    private async Task BreatherLoop() {
+        Console.WriteLine("Breath in.");
+        await Task.Delay(_breathInterval);
+        Console.WriteLine("Breath out.");
+        await Task.Delay(_breathInterval);
     }
-    private void Run() {
+    public async Task Run() {
+        Stopwatch stopwatch = Stopwatch.StartNew();
+        while(true) {
+            long remainingTime = _time - stopwatch.ElapsedMilliseconds;
+            if (remainingTime < 1.9 * _breathInterval) break;
+            Console.WriteLine("stopwatch: " + stopwatch);
+            await BreatherLoop();
 
+        }
     }
 
 }
