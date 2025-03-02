@@ -19,7 +19,6 @@ class Reflection : Activity {
         Console.Clear();
         ShowIntro();
 
-        GetRandomPrompt();
     }
     private void GetRandomPrompt() {
         Random random = new Random();
@@ -34,6 +33,7 @@ class Reflection : Activity {
 
     public async Task Run() {
         await ShowSpinner(5000);
+        GetRandomPrompt();
         Stopwatch stopwatch = Stopwatch.StartNew();
         while(stopwatch.ElapsedMilliseconds < _time) {
             if (Console.KeyAvailable) {
