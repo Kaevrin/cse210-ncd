@@ -3,15 +3,19 @@ using System.Diagnostics;
 using System.Runtime.InteropServices;
 class Reflection : Activity {
     private List<string> _prompts = new List<string> {
-            "List things that made you smile this week, no matter how small.",
-            "Write down everything you’re feeling in this moment without filtering or judgment.",
-            "Describe a place—real or imaginary—that feels completely peaceful to you.",
-            "List things you love about yourself today.",
-            "Jot down any worries or stresses on your mind, then write a kind or comforting response to each."
+            "What is one intention you want to set for today?",
+            "What is one kind thing you can say to yourself right now?",
+            "Take three deep breaths. How does your body feel in this moment?",
+            "What is one thing you can release today to bring more peace into your life?",
+            "Describe your surroundings using all five senses. What do you notice?",
+            "What is one small win you had today, no matter how minor?",
+            "Close your eyes for a moment. What sensations do you feel in different parts of your body?",
+            "What emotions are you experiencing right now? How can you acknowledge them without judgment?"
     };
     private string _userReply;
 
     public Reflection(int time) : base(time) {
+        _activityInfo = "help you ponder on your life and what you can be doing to improve.";
         Console.Clear();
         ShowIntro();
 
