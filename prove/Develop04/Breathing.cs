@@ -11,10 +11,25 @@ class Breathing : Activity {
     }
     private async Task BreatherLoop() {
         Console.WriteLine("Breath in.");
-        await Task.Delay(_breathInterval);
+        await Countdown(4000);
         Console.WriteLine("Breath out.");
-        await Task.Delay(_breathInterval);
+        await Countdown(4000);
     }
+
+    private async Task Countdown(int duration) {
+        Stopwatch stopwatch = Stopwatch.StartNew();
+        int secondsRemaining = duration/1000;
+        while(secondsRemaining > 0) {
+            Console.SetCursorPosition(0, Console.CursorTop);
+            Console.Write(secondsRemaining);
+            await Task.Delay(1000);
+            secondsRemaining--;
+        }
+
+        Console.SetCursorPosition(0, Console.CursorTop);
+        Console.Write("");
+    }
+
     public async Task Run() {
         await ShowSpinner(5000);
         Stopwatch stopwatch = Stopwatch.StartNew();

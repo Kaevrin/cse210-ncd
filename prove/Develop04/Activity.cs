@@ -2,7 +2,6 @@ using System.Diagnostics;
 using System.Security.Cryptography;
 
 class Activity {
-    protected string _startingMessage;
     private string _endingMessage;
     protected int _time;
     private string _className;
@@ -12,10 +11,9 @@ class Activity {
     protected Activity(int duration) {
         SetTime(duration);
         _className = this.GetType().Name;
-        _startingMessage =  "Welcome to the " + _className +  " activity. This activity will " + _activityInfo +"\nGet ready...";
         _endingMessage = "Good job!";
     }
-    protected async Task ShowSpinner(int duration) {
+    protected static async Task ShowSpinner(int duration) {
         Stopwatch stopwatch = Stopwatch.StartNew();
         string [] spinner = { "/", "-", "\\", "|"};
         int i = 0;
@@ -32,7 +30,7 @@ class Activity {
         Console.Write("");
     }
     protected void ShowIntro() {
-        Console.WriteLine(_startingMessage);
+        Console.WriteLine("Welcome to the " + _className +  " activity. This activity will " + _activityInfo +"\nGet ready...");
     }
     protected void SetTime(int duration) {
         _time = duration * 1000;
