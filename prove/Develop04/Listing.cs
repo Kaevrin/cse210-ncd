@@ -16,7 +16,7 @@ class Listing : Activity {
     private List<string> _replies = new List<string> {};
 
     public Listing(int time) : base(time) {
-        _activityInfo = "help you think of positive things in your life";
+        _activityInfo = "help you think of positive things in your life and write them down.";
         Console.Clear();
         ShowIntro();
 
