@@ -1,7 +1,7 @@
-class Biking : Activity {
+class Rowing : Activity {
     private double _speed;
 
-    public Biking(DateTime date, int minutes, double speed) : base(date, minutes) {
+    public Rowing(DateTime date, int minutes, double speed) : base(date, minutes) {
         _speed = speed;
     }
 

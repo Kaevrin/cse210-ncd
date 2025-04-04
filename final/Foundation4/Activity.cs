@@ -9,7 +9,7 @@ class Activity {
     }
 
 
-    protected virtual string GetSumary() {
+    public virtual string GetSummary() {
         return "Error, no override given.";
     }
 }
