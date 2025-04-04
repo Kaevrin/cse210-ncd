@@ -12,18 +12,15 @@ class Activity {
 
 
     public virtual string GetSummary() {
-        return "Error, no override given.";
+        return $"{_date.ToString("dd MMM yyyy")} {this.GetType().Name}({_minutes} min)- Distance {GetDistance()} miles, Speed {GetSpeed()} mph, Pace {GetPace()} min per mile";
     }
-    protected virtual double GetDistance(double speed, double time) {
-        double output = speed * (time/60);
-        return output;
+    protected virtual double GetDistance() {
+        return GetSpeed() * (_minutes / 60.0);
     }
-    protected virtual double GetSpeed(double pace) {
-        double output = _minutes / pace;
-        return output;
+    protected virtual double GetSpeed() {
+         return GetDistance() / (_minutes / 60.0);
     }
-    protected virtual double GetPace(double distance) {
-        double output = _minutes / distance;
-        return output;
+    protected virtual double GetPace() {
+         return _minutes / GetDistance(); 
     }
 }

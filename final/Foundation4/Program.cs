@@ -4,9 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Foundation4 World!");
-        Tempcode tempcode = new Tempcode(new DateTime(2025, 03, 09), 50, 30);
-        Console.WriteLine(tempcode.GetSummary());
+        Console.Clear();
         List<Activity> activities = new List<Activity>();
         Biking biking = new Biking(new DateTime(2024, 3, 31), 40, 30);
         activities.Add(biking);
@@ -14,6 +12,8 @@ class Program
         activities.Add(running);
         Swimming swimming = new Swimming(new DateTime(2023, 6, 1), 10, 50);
         activities.Add(swimming);
+        Rowing rowing = new Rowing(new DateTime(2025, 1, 17), 25, 15);
+        activities.Add(rowing);
         foreach (Activity activity in activities) {
             Console.WriteLine(activity.GetSummary());
         }

@@ -1,13 +1,16 @@
 class Rowing : Activity {
-    private double _speed;
+    private double _pace;
 
-    public Rowing(DateTime date, int minutes, double speed) : base(date, minutes) {
-        _speed = speed;
+    public Rowing(DateTime date, int minutes, double pace) : base(date, minutes) {
+        _pace = pace;
     }
 
-    public override string GetSummary() {
-        double distance = _speed * (_minutes / 60.0);
-        double pace = _minutes / distance;
-        return $"{_date.ToString("dd MMM yyyy")} {this.GetType().Name}({_minutes} min)- Distance {distance} miles, Speed {_speed} mph, Pace {pace} min per mile";
+    protected override double GetDistance()
+    {
+        return _minutes / GetPace();
+    }
+    protected override double GetPace()
+    {
+        return _pace; 
     }
 }
